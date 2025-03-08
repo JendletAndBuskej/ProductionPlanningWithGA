@@ -1,0 +1,23 @@
+bedds:
+- id: 1
+  size:
+  - 10
+  - 30
+  pos:
+  - 0
+  - 0
+- id: 2
+  size:
+  - 10
+  - 30
+  pos:
+  - 0
+  - 0
+- id: 3
+  size:
+  - 10
+  - 30
+  pos:
+  - 0
+  - 0
+workers: 40
