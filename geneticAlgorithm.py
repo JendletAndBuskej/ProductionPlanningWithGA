@@ -41,8 +41,13 @@ class GeneticAlgorithm():
             genome = 1 if genome == 0 else 0
         return self
     
-    def get_parents(self):
-        pass
+    def selection(self):
+        all_fitness_values = [gen.fittnes_score() for gen in (self.population)]
+        total_fittnes = sum(all_fitness_values)
+        accumulated_normalized_fitness = []
+        for gen in (self.population):
+            
+            accumulated_normalized_fitness
 
     def crossover_uniform(self, gen_father: Gen, gen_mother: Gen):
         gen_son = copy.deepcopy(gen_father)
@@ -58,12 +63,19 @@ class GeneticAlgorithm():
     def crossover_k_point(self, gen_father: Gen, gen_mother: Gen, k_points: int):
         gen_son = copy.deepcopy(gen_father)
         gen_daughter = copy.deepcopy(gen_mother)
-        random_points = np.random.choice(np.arange(0,k_points),size=self.genomes_per_gen,replace=False)
+        random_points = np.random.choice(np.arange(1, self.genomes_per_gen - 1), size=k_points, replace=False)
         points = np.sort(random_points)
+        for iPoint, point in enumerate(points):
+            gen_son.gen[point:] = gen_mother.gen[point:]
+            gen_daughter.gen[point:] = gen_father.gen[point:]
+            if iPoint % 2 == 1:
+                gen_son.gen[point:] = gen_father.gen[point:]
+                gen_daughter.gen[point:] = gen_mother.gen[point:]
+        return self
         
     def do_generation():
         pass
 
 GA = GeneticAlgorithm([3,2],[1,2],2,2,3,60)
 # GA.generate_population().crossover_uniform(GA.population[0],GA.population[1])
-GA.generate_population().crossover_k_point(GA.population[0],GA.population[1],70)
+GA.generate_population().crossover_k_point(GA.population[0],GA.population[1],3)

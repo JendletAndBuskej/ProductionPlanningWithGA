@@ -78,6 +78,7 @@ class Gen():
 
     def fittnes_score(self):
         fittnes_score = 0
-        for _ in self.gen:
-            fittnes_score += np.random.uniform(0, 1)
+        for iGenome, genome in self.gen:
+            fittnes_score += genome*iGenome # Having bit array all equal 0 for max
+            # fittnes_score += np.random.uniform(0, 1)
         return fittnes_score
