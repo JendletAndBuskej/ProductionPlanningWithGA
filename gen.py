@@ -5,7 +5,7 @@ import numpy as np
 class Gen():
     def __init__(self,
             orders: list[int], beds: list[int], bed_nbr_slots_x: int,
-            bed_nbr_slots_y: int, nbr_time_slots: int):
+            bed_nbr_slots_y: int, nbr_time_slots: int,test=0):
         nbr_pontons = 0
         for order in orders:
             # nbr_pontons_of_order = len(order.pontons) # np.shape(order.pontons)[0]
@@ -24,7 +24,7 @@ class Gen():
             self.nbr_bins_time
         ]
         self.total_bins_per_ponton = sum(self.bins_sizes)
-        self.gen = np.zeros([nbr_pontons*self.total_bins_per_ponton,],dtype=int)
+        self.gen = test*np.ones([nbr_pontons*self.total_bins_per_ponton,],dtype=int)
 
     def _nbr2Bins(self, nbr):
         bins = np.array([int(bit) for bit in bin(nbr)[2:]])
@@ -76,9 +76,9 @@ class Gen():
         start_time = self._bins2Nbr(start_time_bins)
         return (bed_id,bed_x,bed_y,start_time)
 
-    def fittnes_score(self):
-        fittnes_score = 0
-        for iGenome, genome in self.gen:
-            fittnes_score += genome*iGenome # Having bit array all equal 0 for max
-            # fittnes_score += np.random.uniform(0, 1)
-        return fittnes_score
+    def fitness_score(self):
+        fitness_score = 0
+        for iGenome, genome in enumerate(self.gen):
+            fitness_score += genome*iGenome # Having bit array all equal 1 for max
+            # fitness_score += np.random.uniform(0, 1)
+        return fitness_score
