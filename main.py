@@ -8,7 +8,7 @@ import pandas as pd
 # file imports
 from order import Order
 from ponton import Ponton
-from read_in_data import load_orders_from_yaml, 
+from read_in_data import load_orders_from_yaml
 
 # endregion
 

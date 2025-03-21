@@ -72,6 +72,12 @@ class Ponton:
         team_size = round(team_size)
         return (team_size)
     
+    def place(self, bedd, pos, time):
+        self.bedd = bedd
+        self.pos = pos
+        self.time = time
+        pass
+
     def print_stats(self):
         print(f"Ponton_{self.id}:")
         print(f" - id: {self.id}")
@@ -83,13 +89,16 @@ class Ponton:
         print(f" - cure_time: {self.cure_time} [days]")
         print(f" - team_size: {self.team_size} [people]")
         print(f" - is_locked: {self.is_locked}")
-        if self.is_locked:
+        if self.is_locked or self.pos:
             print(f"   -- bedd_id: {self.bedd_id}")
             print(f"   -- pos: {self.pos} [m]")
             print(f"   -- time: {self.time}")
+        else:
+            print("   -- is not sceduled with bedd, pos and time")
+        pass
 
     def get_dict(self):
-        if self.is_locked:
+        if self.is_locked or self.pos:
             ponton_dict = {
             "id": self.id,
             "order_id": self.order.order_id,

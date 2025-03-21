@@ -1,23 +1,45 @@
+# This is not real data just example data that should work alright
 bedds:
 - id: 1
-  size:
-  - 10
-  - 30
   pos:
-  - 0
-  - 0
+  - 4.8
+  - 5.4
+  size:
+  - 7
+  - 50
 - id: 2
-  size:
-  - 10
-  - 30
   pos:
-  - 0
-  - 0
+  - 20
+  - 5.4
+  size:
+  - 19.5
+  - 54.3
 - id: 3
+  pos:
+  - 55
+  - 0
   size:
   - 10
-  - 30
+  - 40
+- id: 4
   pos:
-  - 0
-  - 0
+  - 82
+  - 18
+  size:
+  - 10
+  - 33
+- id: 5
+  pos:
+  - 16
+  - 45
+  size:
+  - 11
+  - 35
+- id: 6
+  pos:
+  - 32
+  - 46
+  size:
+  - 16
+  - 30
 workers: 40

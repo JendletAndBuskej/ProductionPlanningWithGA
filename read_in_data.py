@@ -67,3 +67,5 @@ def load_orders_from_yaml(filename):
     order_list = list(order_objects.values())
     print(f"Loaded {len(order_list)} orders and {len(locked_pontons)} locked pontons.")
     return planned_start_date, order_list, locked_pontons  # Return planned start date, orders, and locked pontons
+
+# here I should read in the layout data but dont know how we want to have the data
